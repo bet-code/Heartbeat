@@ -1,0 +1,252 @@
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:700;}dfn{font-style:italic;}mark{background:#ff0;color:#000;}code,kbd,pre,samp{font-family:monospace, serif;font-size:1em;}pre{white-space:pre-wrap;word-wrap:break-word;}q{quotes:\201C \201D \2018 \2019;}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-.5em;}sub{bottom:-.25em;}img{border:0;}svg:not(:root){overflow:hidden;}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,html input[type=button],/* 1 */input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer;}button[disabled],input[disabled]{cursor:default;}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0;}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}body,figure{margin:0;}legend,button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+ /* ===== GENERAL ===== */
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: linear-gradient(to top right, #000 -10%, hsl(210, 29%, 24%) 40%, #34495e 70%, #9b59b6 110%);
+    min-height: 100vh;
+    display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.wrapper {
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+.heartBeat {
+    color:red;
+}
+
+h1 {
+    display: inline-block;    
+    font-size: 8rem;
+    padding: 10px 20px;
+    margin: 40px 5px;
+    background: #8e44ad;
+    color: #ecf0f1;
+    text-shadow: 0 0 5px #34495e;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px #2c3e50;
+    position: absolute;
+    right: 0;    
+}
+
+h1 span { 
+    font-size: 5rem;
+    letter-spacing: -5px;
+    color: #34495e;
+    text-shadow: 0 0 5px #ecf0f1;
+    vertical-align: middle;
+}
+
+.controls {
+    padding: 125px 0 20px 0;
+}
+
+.controls button {
+    font-size: 2rem;
+    padding: 10px 20px;
+    margin-right: 5px;
+    background: #1abc9c;
+    color: #ecf0f1;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #ecf0f1;
+    transition: background .3s ease;
+}
+
+.controls button:hover {
+    background: #16a085;
+}
+
+.drum {
+    display: flex;
+    padding: 0 10px;
+    border-bottom: 1px solid #34495e;
+}
+
+.drum:last-child {
+    border-bottom: none;
+}
+
+.instruments {
+    display: inline-block;
+    height: 100%;
+    padding: 10px;
+    background: #2c3e50;
+    box-shadow: 0 3px 6px #ecf0f1;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.displayInfo {
+    display: flex;
+    position: absolute;
+    left: 20px;
+    top: 2px;
+}
+
+
+h2 {
+    width: 80px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #2ecc71;    
+}
+
+ul {
+    flex: 1;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+li {
+    padding: 3px 0;
+}
+.drumList input[type='checkbox'] {
+    display: none;
+}
+
+.drumList label{
+    display: block;
+    margin: 5px;
+    width: 60px;
+    height: 50px;
+    background: #2980b9;
+    border-radius: 3px;
+    border: .5px solid #fff;
+    outline: none;
+    z-index: 1;
+    transition: background .3s ease;
+}
+
+.counter li {
+    margin: 0;
+    width: 70px;
+    height: 285px;
+    background: rgba(192, 57, 43, .5);
+    border: .1px solid #e74c3c;
+    opacity: 0;
+}
+
+.drumList li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.beatSelected {
+    background: #2ecc71 !important;
+}
+
+.marker {
+    animation: marker .5s ease ;
+}
+
+footer {
+    background: #2c3e50;
+    text-align: center;
+    color: #ecf0f1; 
+}
+
+footer p {
+    font-size: 2rem;
+    padding: 5px;
+}
+
+@keyframes marker{
+    0% {
+        opacity: 1;
+      }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 900px) {    
+        .wrapper {
+            width: 90%;
+        }    
+    }
+
+@media (max-width: 780px) {
+
+    .wrapper {
+        width: 100%;
+    }
+    h1 {
+        left: 0;
+        display: block;
+        margin: 0;
+        text-align: center;
+        top: 0;
+    }
+    .controls {
+        width: 100%;
+        padding: 0;
+        position: absolute;
+        top: 33%;
+        text-align: center;
+    }
+    .instruments {
+        left: 50%;
+        top: 210px;
+        transform: translateX(-50%);
+    }
+    .counter li {
+        right: 70px;
+        width: 50px;
+        height: 370px;
+    }
+    h2 {
+        transform: rotate(-40deg) translate(20px, 20px);
+    }
+    .drumList label {
+        width: 40px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        height: 125vh;
+        position: relative;
+    }
+    .instruments {
+        transform: rotate(90deg) translateX(-50%);
+        left: 0;
+        top: 555px;
+    }
+}
+
+@media (max-width: 505px) {
+    .instruments {
+        left: -40px;
+    }
+}
+
+@media (max-width: 450px) {
+    .instruments {
+        left: -90px;
+    }
+}
+
+
+
+

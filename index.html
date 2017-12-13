@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drum Machine</title>
+    <script src="https://use.fontawesome.com/452826394c.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <main>
+        <div class="wrapper">
+            <h1 id="heartBeat"><i class="fa fa-heartbeat"></i><span>beat</span></h1>  
+            <div class="controls">
+                <button class="play"><i class="fa fa-play"></i></button>
+                <button class="stop"><i class="fa fa-stop"></i></button>
+                <button class="reset">RESET</button>
+            </div>
+            <div class="instruments">
+                <div class="displayInfo">
+                    <h2><span></span></h2>
+                    <ul class="counter">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="drum beat1">
+                    <audio id='kickSound'>
+                        <source src="assets/kick.wav" name='kick'/>
+                    </audio>
+                    <h2>KICK</h2>
+                    <ul class="drumList drum1" data-drum="drum1">
+                        <li>
+                            <input type="checkbox" id="0">
+                            <label for='0'></label>
+                        </li>
+                            <li><input type="checkbox" id="1">
+                            <label for='1'></label>
+                        </li>
+                            <li><input type="checkbox" id="2">
+                            <label for='2'></label>
+                        </li>
+                            <li><input type="checkbox" id="3">
+                            <label for='3'></label>
+                        </li>
+                            <li><input type="checkbox" id="4">
+                            <label for='4'></label>
+                        </li>
+                            <li><input type="checkbox" id="5">
+                            <label for='5'></label>
+                        </li>
+                            <li><input type="checkbox"  id="6">
+                            <label for='6'></label>
+                        </li>
+                            <li><input type="checkbox" id="7">
+                            <label for='7'></label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="drum beat2">
+                    <audio id="snareSound">
+                        <source src="assets/snare.wav" name='snare'/>
+                    </audio>
+                    <h2>SNARE</h2>
+                    <ul class="drumList drum2" data-drum="drum2">
+                        <li>
+                            <input type="checkbox" id="8">
+                            <label for='8'></label>
+                        </li>
+                            <li><input type="checkbox" id="9">
+                            <label for='9'></label>
+                        </li>
+                            <li><input type="checkbox" id="10">
+                            <label for='10'></label>
+                        </li>
+                            <li><input type="checkbox" id="11">
+                            <label for='11'></label>
+                        </li>
+                            <li><input type="checkbox" id="12">
+                            <label for='12'></label>
+                        </li>
+                            <li><input type="checkbox" id="13">
+                            <label for='13'></label>
+                        </li>
+                            <li><input type="checkbox" id="14">
+                            <label for='14'></label>
+                        </li>
+                            <li><input type="checkbox" id="15">
+                            <label for='15'></label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="drum beat3">
+                    <audio id="clapSound">
+                        <source src="assets/clap.wav" name='clap'/>
+                    </audio>
+                    <h2>CLAP</h2>
+                    <ul class="drumList drum3" data-drum="drum3">
+                        <li>
+                            <input type="checkbox" id="16">
+                            <label for='16'></label>
+                        </li>
+                            <li><input type="checkbox" id="17">
+                            <label for='17'></label>
+                        </li>
+                            <li><input type="checkbox" id="18">
+                            <label for='18'></label>
+                        </li>
+                            <li><input type="checkbox" id="19">
+                            <label for='19'></label>
+                        </li>
+                            <li><input type="checkbox" id="20">
+                            <label for='20'></label>
+                        </li>
+                            <li><input type="checkbox" id="21">
+                            <label for='21'></label>
+                        </li>
+                            <li><input type="checkbox" id="22">
+                            <label for='22'></label>
+                        </li>
+                            <li><input type="checkbox" id="23">
+                            <label for='23'></label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="drum beat4">
+                    <audio id="hihatSound">
+                        <source src="assets/hihat.wav" name='clap'/>
+                    </audio>                
+                    <h2>HI-HAT  </h2>
+                    <ul class="drumList drum4" data-drum="drum4">
+                        <li>
+                            <input type="checkbox" id="24">
+                            <label for='24'></label>
+                        </li>
+                            <li><input type="checkbox" id="25">
+                            <label for='25'></label>
+                        </li>
+                            <li><input type="checkbox" id="26">
+                            <label for='26'></label>
+                        </li>
+                            <li><input type="checkbox" id="27">
+                            <label for='27'></label>
+                        </li>
+                            <li><input type="checkbox" id="28">
+                            <label for='28'></label>
+                        </li>
+                            <li><input type="checkbox" id="29">
+                            <label for='29'></label>
+                        </li>
+                            <li><input type="checkbox" id="30">
+                            <label for='30'></label>
+                        </li>
+                            <li><input type="checkbox" id="31">
+                            <label for='31'></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>	&#169; Gilbert J 2017</p>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>    
+    <script src="js/app.js"></script>
+
+</body>
+</html>
