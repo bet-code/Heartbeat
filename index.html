@@ -6,16 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Drum Machine</title>
     <script src="https://use.fontawesome.com/452826394c.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <section id="notSupportedAlert">
+        <div class="notSupported">
+            <h3>Sorry. Currently not supported on mobile devices</h3>
+            <p>You can only enjoy the program on a Computer  </p>
+        </div>
+    </section>
     <main>
+        <header>
+            <div class="wrapper">
+                <h1 id="heartBeat"><i class="fa fa-heartbeat"></i><span>beatz</span></h1>  
+            </div>
+        </header>
         <div class="wrapper">
-            <h1 id="heartBeat"><i class="fa fa-heartbeat"></i><span>beat</span></h1>  
             <div class="controls">
                 <button class="play"><i class="fa fa-play"></i></button>
                 <button class="stop"><i class="fa fa-stop"></i></button>
                 <button class="reset">RESET</button>
+                <div class="tempo">
+                    <label for="tempo">SPEED: <span id="tempo"></span></label>
+                    <input type="range" id="tempo" class="speed" value="250" min="100" max="400" step="5">
+                </div>
+            </div>
+            <div class="soundEffect">
+                <audio id='airhorn' src="assets/airhorn1.mp3"></audio>
+                <button class="airhorn"><i class="fa fa-bullhorn" aria-hidden="true"></i></button>
             </div>
             <div class="instruments">
                 <div class="displayInfo">
@@ -31,10 +50,19 @@
                         <li></li>
                     </ul>
                 </div>
+                <audio id='kickSound'>
+                    <source src="assets/kick.wav"/>
+                </audio>
+                <audio id="snareSound">
+                    <source src="assets/snare.wav"/>
+                </audio>
+                <audio id="clapSound">
+                    <source src="assets/clap.wav"/>
+                </audio>
+                <audio id="hihatSound">
+                    <source src="assets/hihat.wav"/>
+                </audio>  
                 <div class="drum beat1">
-                    <audio id='kickSound'>
-                        <source src="assets/kick.wav" name='kick'/>
-                    </audio>
                     <h2>KICK</h2>
                     <ul class="drumList drum1" data-drum="drum1">
                         <li>
@@ -65,9 +93,6 @@
                     </ul>
                 </div>
                 <div class="drum beat2">
-                    <audio id="snareSound">
-                        <source src="assets/snare.wav" name='snare'/>
-                    </audio>
                     <h2>SNARE</h2>
                     <ul class="drumList drum2" data-drum="drum2">
                         <li>
@@ -98,9 +123,6 @@
                     </ul>
                 </div>
                 <div class="drum beat3">
-                    <audio id="clapSound">
-                        <source src="assets/clap.wav" name='clap'/>
-                    </audio>
                     <h2>CLAP</h2>
                     <ul class="drumList drum3" data-drum="drum3">
                         <li>
@@ -130,10 +152,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="drum beat4">
-                    <audio id="hihatSound">
-                        <source src="assets/hihat.wav" name='clap'/>
-                    </audio>                
+                <div class="drum beat4">              
                     <h2>HI-HAT  </h2>
                     <ul class="drumList drum4" data-drum="drum4">
                         <li>
@@ -162,12 +181,14 @@
                             <label for='31'></label>
                         </li>
                     </ul>
-                </div>
-            </div>
-        </div>
+                </div> <!-- end of drum -->
+            </div> <!-- end of instruments -->
+        </div> <!-- end of wrapper -->
     </main>
     <footer>
-        <p>	&#169; Gilbert J 2017</p>
+        <div class="wrapper">
+            <p>	&#169; Retro 2017 Gilbert J <span><a href="http://www.gilbertjose.ca"><span>www.gilbertjose.ca</span></a></p>
+        </div>
     </footer>
     
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="

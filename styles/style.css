@@ -9,7 +9,12 @@ html {
 }
 
 body {
-    background: linear-gradient(to top right, #000 -10%, hsl(210, 29%, 24%) 40%, #34495e 70%, #9b59b6 110%);
+    font-family: 'Orbitron', sans-serif;    
+    letter-spacing: 2px;
+    /* Photo by Hanny Naibaho on Unsplash */
+    background: linear-gradient(to right, rgba(2,2,2,.8), rgba(2,2,2,.5)),
+    url(../assets/dj1.jpg) left;
+    background-size: cover;
     min-height: 100vh;
     display: flex;
 	flex-direction: column;
@@ -18,63 +23,134 @@ body {
 
 .wrapper {
     width: 80%;
-    max-width: 1080px;
+    max-width: 1900px;
     margin: 0 auto;
     position: relative;
 }
 
-
 .heartBeat {
-    color:red;
+    color:rgb(102, 0, 0);
+    text-shadow: 0 0 3px rgb(202, 3, 3);
+}
+
+.controls button,
+.tempo,
+h1 span,
+.soundEffect button,
+h2,
+footer p,
+#notSupportedAlert {
+    text-shadow: 
+    0 0 2px #fff,
+    0 0 5px #fff,
+    0 0 8px #CC30FF,
+    0 0 15px #CC30FF,
+    0 0 20px #CC30FF;
+}
+
+header {
+    background: linear-gradient(to right, rgba(142, 68, 173,.2), rgba(142, 68, 173,.9));
 }
 
 h1 {
-    display: inline-block;    
+    display: block; 
     font-size: 8rem;
-    padding: 10px 20px;
-    margin: 40px 5px;
-    background: #8e44ad;
-    color: #ecf0f1;
-    text-shadow: 0 0 5px #34495e;
-    border-radius: 10px;
-    box-shadow: 0 1px 5px #2c3e50;
-    position: absolute;
-    right: 0;    
+    padding: 0;
+    margin: 0;
+    color: rgb(202, 3, 3);
+    text-shadow: 
+        0 0px 2px #fff, 
+        0 0px 5px #fff,
+        0 0 8px rgb(202, 3, 3),
+        0 0 15px rgb(202, 3, 3),
+        0 0 20px rgb(202, 3, 3);
+    transition: text-shadow .1s ease;
 }
 
 h1 span { 
-    font-size: 5rem;
-    letter-spacing: -5px;
-    color: #34495e;
-    text-shadow: 0 0 5px #ecf0f1;
+    font-size: 4rem;
+    font-weight: normal;
+    margin-left: 10px;
+    color: #fff;
     vertical-align: middle;
 }
 
 .controls {
-    padding: 125px 0 20px 0;
+    display: inline-block;
+    padding: 20px 0;
+    margin-top: 40px;
 }
 
-.controls button {
+.controls button,
+.tempo {
     font-size: 2rem;
     padding: 10px 20px;
     margin-right: 5px;
-    background: #1abc9c;
+    background: rgb(20,20,20);
     color: #ecf0f1;
     text-decoration: none;
-    border: none;
+    border: .5px solid #FB5024;
     border-radius: 5px;
-    box-shadow: 0 0 3px #ecf0f1;
-    transition: background .3s ease;
+    transition: background .1s ease;
 }
 
-.controls button:hover {
-    background: #16a085;
+.soundEffect{
+    margin-left: 80px; 
+}
+
+.soundEffect button {
+    font-size: 5rem;
+    border-radius: 50%;
+    color: #fff;
+    background: rgb(20,20,20);
+    border: .5px solid #FB5024;
+    box-shadow: 
+        0 0 2px #fff,
+        0 0 5px #fff,
+        0 0 8px #CC30FF,
+        0 0 15px #CC30FF,
+        0 0 20px #CC30FF;    
+}
+
+.controls button:hover,
+.soundEffect button:hover {
+    background: #CC30FF;
+}
+.controls button:active,
+.soundEffect button:active {
+    background: #fff;
+    outline: none;
+}
+.controls button:focus,
+.soundEffect button:focus {
+    outline: none;
+}
+.btnActive {
+    box-shadow: 
+        0 0 2px #fff,
+        0 0 5px #fff,
+        0 0 8px #CC30FF,
+        0 0 15px #CC30FF,
+        0 0 20px #CC30FF;
+}
+
+
+.tempo,
+.soundEffect {
+    display: inline-block;
+}
+
+input[type=range] {
+    transform: rotate(180deg);
+    -webkit-appearance: none;
+    height: 5px;
+    background: #2980b9;
 }
 
 .drum {
     display: flex;
     padding: 0 10px;
-    border-bottom: 1px solid #34495e;
+    border-bottom: .5px solid #FB5024;
 }
 
 .drum:last-child {
@@ -85,8 +161,8 @@ h1 span {
     display: inline-block;
     height: 100%;
     padding: 10px;
-    background: #2c3e50;
-    box-shadow: 0 3px 6px #ecf0f1;
+    background: linear-gradient(to right, rgba( 20, 20, 20, .9), rgba( 20, 20, 20, .9));
+    border: .5px solid #FB5024;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
@@ -96,15 +172,15 @@ h1 span {
     display: flex;
     position: absolute;
     left: 20px;
-    top: 2px;
+    top: 0;
 }
 
-
 h2 {
-    width: 80px;
+    width: 95px;
     font-size: 2rem;
+    font-weight: normal;
     text-transform: uppercase;
-    color: #2ecc71;    
+    color: #fff;
 }
 
 ul {
@@ -130,18 +206,25 @@ li {
     height: 50px;
     background: #2980b9;
     border-radius: 3px;
-    border: .5px solid #fff;
     outline: none;
     z-index: 1;
     transition: background .3s ease;
 }
 
 .counter li {
+    padding: 0;
     margin: 0;
     width: 70px;
     height: 285px;
-    background: rgba(192, 57, 43, .5);
-    border: .1px solid #e74c3c;
+    background: rgba(251, 80, 36,.3);
+    box-shadow: 
+    0 0 2px #fff,
+    0 0 5px #fff,
+    0 0 8px rgba(251, 80, 36,.3),
+    0 0 15px rgba(251, 80, 36,.3),
+    0 0 20px rgba(251, 80, 36,.3);
+
+    border: .1px solid rgb(251, 80, 36);
     opacity: 0;
 }
 
@@ -152,7 +235,13 @@ li {
 }
 
 .beatSelected {
-    background: #2ecc71 !important;
+    background: #fff !important;
+    box-shadow: 
+        0 0 2px #fff,
+        0 0 5px #fff,
+        0 0 8px #CC30FF,
+        0 0 15px #CC30FF,
+        0 0 20px #CC30FF;
 }
 
 .marker {
@@ -160,14 +249,42 @@ li {
 }
 
 footer {
-    background: #2c3e50;
+    background: linear-gradient(to right, rgba(142, 68, 173,.2), rgba(142, 68, 173,.9));
+    margin-top: 60px;
+}
+
+footer .wrapper {
+    color: #fff;
     text-align: center;
-    color: #ecf0f1; 
+
 }
 
 footer p {
-    font-size: 2rem;
-    padding: 5px;
+    font-size: 1.6rem;
+    padding: 3px;
+}
+
+footer a {
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 
+        0 0 2px #fff,
+        0 0 5px #fff,
+        0 0 10px lime,
+        0 0 15px lime,
+        0 0 20px lime;
+    transition: text-shadow .3s ease;
+}
+
+footer a:hover {
+    text-shadow: 
+    0 0 2px #fff,
+    0 0 5px #fff,
+    0 0 8px #CC30FF,
+    0 0 15px #CC30FF,
+    0 0 20px #CC30FF;
 }
 
 @keyframes marker{
@@ -181,7 +298,7 @@ footer p {
 
 @media (max-width: 900px) {    
         .wrapper {
-            width: 90%;
+            width: 95%;
         }    
     }
 
@@ -217,17 +334,44 @@ footer p {
     h2 {
         transform: rotate(-40deg) translate(20px, 20px);
     }
-    .drumList label {
+    .drumList label { 
         width: 40px;
         height: 70px;
     }
 }
 
-@media (max-width: 600px) {
+#notSupportedAlert {
+    color: #fff;
+    text-align: center;
+    background:  rgba(2,2,2,.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+}
+
+.notSupported h3 {
+    font-size: 3rem;
+}
+.notSupported p {
+    font-size: 2rem;
+}
+
+@media (max-width: 780px) {
     body {
         height: 125vh;
         position: relative;
     }
+    #notSupportedAlert {
+        display: flex;
+    }
+
     .instruments {
         transform: rotate(90deg) translateX(-50%);
         left: 0;

@@ -1,7 +1,15 @@
 
 drumMachine = {};
 let timer;
+let duration = 250;
 let playOnce = 0;
+
+const airhorn = document.getElementById('airhorn');
+const kickSound = document.getElementById('kickSound');
+const snareSound = document.getElementById('snareSound');
+const clapSound = document.getElementById('clapSound');
+const hihatSound = document.getElementById('hihatSound');
+
 
 drumMachine.beats =  {
     drum1:  [false, false, false, false, false, false, false, false],
@@ -14,38 +22,44 @@ drumMachine.beats =  {
 drumMachine.startPlay = () => {
     let counter = 0;
     let beatHops = $('.counter li');
-    
+
     if (counter < beatHops.length && playOnce < 1 ) {
-        timer = setInterval(() => { 
+        $('.play').addClass('btnActive');
+        timer = setInterval(() => {
             let  hop = $(beatHops[counter]);
+
             if (drumMachine.beats.drum1[counter] === true) {
-                document.getElementById('kickSound').play();
+                kickSound.currentTime = 0;
+                kickSound.play();
                 $('#heartBeat').addClass('heartBeat')
             } 
             else if(drumMachine.beats.drum2[counter] === true) {
-                document.getElementById('snareSound').play();
+                snareSound.currentTime = 0;
+                snareSound.play();
                 $('#heartBeat').addClass('heartBeat')                
             } 
             else if(drumMachine.beats.drum3[counter] === true) {
-                document.getElementById('clapSound').play();
+                clapSound.currentTime = 0;
+                clapSound.play();
                 $('#heartBeat').addClass('heartBeat')                
             } 
             else if(drumMachine.beats.drum4[counter] === true) {
-                document.getElementById('hihatSound').play();
+                hihatSound.currentTime = 0;
+                hihatSound.play();
                 $('#heartBeat').addClass('heartBeat')
             } 
             
             hop.addClass('marker');
-            //remove the .marker class after .5 seconds it is added
             setTimeout(function() {
                 hop.removeClass('marker');
                 $('#heartBeat').removeClass('heartBeat');
-            }, 200); 
+            }, duration - 20);
+            
             counter++;            
             if ( counter > beatHops.length -1) {
                 counter = 0; 
             }   
-        }, 250);
+        }, duration);
     };    
 }
 
@@ -67,25 +81,46 @@ drumMachine.beatSelected = () => {
 }
 
 drumMachine.controls = () => {
-    $('.play').on('click', () => {
+    $('.play').on('click', function() {
+        clearInterval(timer);
+        playOnce = 0;
         drumMachine.startPlay();
         playOnce++
     });
     
-    $('.stop').on('click', () => {
+    $('.stop').on('click', function() {
+        $('.play').removeClass('btnActive');
         clearInterval(timer);
         counter = 0;
         playOnce = 0;
     });
 
-    $('.reset').on('click', () => {
+    $('.reset').on('click', function() {
         location.reload(true);
+    });
+    
+    $('.speed').on('change', function() {
+        duration = $(this).val();
+        if(playOnce === 1) {
+            clearInterval(timer);
+            playOnce = 0;
+            drumMachine.startPlay();
+            playOnce++;
+        }
+    });
+}
+
+drumMachine.soundEffect = () => {
+    $('.airhorn').on('click', function (){
+        airhorn.currentTime = 0;
+        airhorn.play();
     })
 }
 
 drumMachine.init = () => {
     drumMachine.beatSelected();
-    drumMachine.controls();    
+    drumMachine.controls();
+    drumMachine.soundEffect(); 
 };
 
 $(() => drumMachine.init());
